@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RMJ Ranch | Thoughtful Breeding and Honest Horsemanship</title>
+  <meta name="description" content="RMJ Ranch is a small reining horse program focused on thoughtful breeding, honest horsemanship, and developing young prospects with care, intention, and long-term purpose." />
+
+  <style>
+    :root {
+      --olive: #202512;
+      --deep-olive: #111509;
+      --cream: #f5efe5;
+      --warm-white: #fbf7ef;
+      --gold: #a9824b;
+      --soft-gold: #c7aa78;
+      --text-dark: #1f1f1a;
+      --text-light: #f8f2e8;
+      --muted: #6f6a5f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+    }
+
+    h1, h2, h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+      padding: 28px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-light);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      font-size: 22px;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      padding-bottom: 7px;
+      border-bottom: 1px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      border-color: var(--soft-gold);
+    }
+
+    .hero {
+      min-height: 720px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(10, 13, 6, 0.86) 0%,
+          rgba(20, 25, 12, 0.66) 38%,
+          rgba(20, 25, 12, 0.10) 76%
+        ),
+        url("https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=1800&q=85");
+      background-size: cover;
+      background-position: center;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      padding: 130px 7% 80px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 570px;
+      margin-top: 55px;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: 7px;
+      text-transform: uppercase;
+      color: var(--soft-gold);
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::after {
+      content: "";
+      display: block;
+      width: 58px;
+      height: 1px;
+      background: var(--soft-gold);
+      margin-top: 18px;
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      line-height: 1.06;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 440px;
+      font-size: 17px;
+      line-height: 1.8;
+      margin-bottom: 34px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .button-row {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 30px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.55);
+      color: var(--text-light);
+      transition: 0.25s ease;
+    }
+
+    .btn.primary {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn:hover {
+      background: var(--text-light);
+      color: var(--deep-olive);
+      border-color: var(--text-light);
+    }
+
+    .intro {
+      background: var(--warm-white);
+      text-align: center;
+      padding: 62px 12% 54px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .small-title {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .small-title::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 18px auto 0;
+    }
+
+    .intro p {
+      max-width: 730px;
+      margin: 0 auto;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #37342f;
+    }
+
+    .signature {
+      margin-top: 26px;
+      font-family: "Brush Script MT", "Segoe Script", cursive;
+      font-size: 44px;
+      color: var(--gold);
+      opacity: 0.9;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature-card {
+      position: relative;
+      min-height: 285px;
+      overflow: hidden;
+      color: var(--text-light);
+      display: flex;
+      align-items: flex-end;
+      padding: 42px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 18, 9, 0.55);
+      z-index: 1;
+      transition: 0.25s ease;
+    }
+
+    .feature-card:hover::before {
+      background: rgba(15, 18, 9, 0.42);
+    }
+
+    .feature-card.one {
+      background-image: url("https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=900&q=85");
+    }
+
+    .feature-card.two {
+      background-image: url("https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=900&q=85");
+    }
+
+    .feature-card.three {
+      background-image: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=85");
+    }
+
+    .feature-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .feature-label {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--soft-gold);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .feature-card h3 {
+      font-size: 30px;
+      line-height: 1.14;
+      margin-bottom: 22px;
+    }
+
+    .feature-link {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--soft-gold);
+      padding-bottom: 5px;
+    }
+
+    .lower-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--warm-white);
+      padding: 62px 10%;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .lower-block {
+      text-align: center;
+    }
+
+    .lower-block:first-child {
+      border-right: 1px solid rgba(83, 72, 51, 0.28);
+      padding-right: 70px;
+    }
+
+    .lower-block h4 {
+      font-size: 13px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .lower-block h4::after {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 1px;
+      background: var(--gold);
+      margin: 16px auto 0;
+    }
+
+    .lower-block p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted);
+      max-width: 390px;
+      margin: 0 auto 24px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .social-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--olive);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .social-circle:hover {
+      background: var(--gold);
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 14px 26px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.25s ease;
+    }
+
+    .contact-btn:hover {
+      background: var(--olive);
+    }
+
+    .footer {
+      background: var(--deep-olive);
+      color: var(--text-light);
+      padding: 34px 7%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      align-items: center;
+      gap: 40px;
+      font-size: 13px;
+    }
+
+    .footer-brand {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .footer-logo {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      font-size: 20px;
+    }
+
+    .footer-title {
+      font-family: Georgia, serif;
+      font-size: 21px;
+      letter-spacing: 3px;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .footer p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .footer-center,
+    .footer-right {
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    @media (max-width: 850px) {
+      .site-header {
+        padding: 24px 6%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .brand-logo {
+        width: 44px;
+        height: 44px;
+      }
+
+      .hero {
+        min-height: 700px;
+        padding: 120px 6% 70px;
+        background-position: center right;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: 250px;
+      }
+
+      .lower-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .lower-block:first-child {
+        border-right: none;
+        border-bottom: 1px solid rgba(83, 72, 51, 0.28);
+        padding-right: 0;
+        padding-bottom: 40px;
+      }
+
+      .footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-brand {
+        justify-content: center;
+      }
+
+      .footer-right {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="#" class="brand" aria-label="RMJ Ranch Home">
+      <div class="brand-logo">R</div>
+      <div class="brand-name">RMJ Ranch</div>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#horses">Horses</a>
+      <a href="#program">Program</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">RMJ Ranch</div>
+        <h1>Thoughtful breeding and honest horsemanship.</h1>
+        <p>
+          Breeding, showing, and sales of reining horses developed with care,
+          intention, and long-term purpose.
+        </p>
+        <div class="button-row">
+          <a href="#horses" class="btn primary">View Horses</a>
+          <a href="#contact" class="btn">Inquire</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro" id="about">
+      <div class="small-title">Built with purpose. Guided by the horse.</div>
+      <p>
+        RMJ Ranch is a small reining horse program focused on thoughtful breeding,
+        honest horsemanship, and developing young prospects with the mind, pedigree,
+        athleticism, and heart to go on and do something meaningful.
+      </p>
+      <div class="signature">RMJ Ranch</div>
+    </section>
+
+    <section class="feature-grid" id="horses">
+      <a href="#" class="feature-card one">
+        <div class="feature-content">
+          <div class="feature-label">Our Foundation</div>
+          <h3>It starts with Lulu.</h3>
+          <span class="feature-link">Meet Lulu →</span>
+        </div>
+      </a>
+
+      <a href="#" class="feature-card two">
+        <div class="feature-content">
+          <div class="feature-label">The Future</div>
+          <h3>The next generation is taking shape.</h3>
+          <span class="feature-link">View Horses →</span>
+        </div>
+      </a>
+
+      <a href="#" class="feature-card three" id="program">
+        <div class="feature-content">
+          <div class="feature-label">Our Program</div>
+          <h3>Thoughtful breeding. Honest horsemanship.</h3>
+          <span class="feature-link">Learn More →</span>
+        </div>
+      </a>
+    </section>
+
+    <section class="lower-section" id="contact">
+      <div class="lower-block">
+        <h4>Follow the Journey</h4>
+        <p>
+          Follow along on social media for updates, behind the scenes,
+          and a look into life at RMJ Ranch.
+        </p>
+        <div class="socials">
+          <a class="social-circle" href="https://www.instagram.com/rmj_ranch/" target="_blank" rel="noopener">IG</a>
+          <a class="social-circle" href="https://www.facebook.com/profile.php?id=61572227610174" target="_blank" rel="noopener">FB</a>
+        </div>
+      </div>
+
+      <div class="lower-block">
+        <h4>Get in Touch</h4>
+        <p>
+          For inquiries about current prospects, future foals, or RMJ Ranch updates,
+          we would love to hear from you.
+        </p>
+        <a href="mailto:info@rmj-ranch.com" class="contact-btn">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <div class="footer-logo">R</div>
+      <div>
+        <div class="footer-title">RMJ Ranch</div>
+        <p>Thoughtful breeding<br>and honest horsemanship.</p>
+      </div>
+    </div>
+
+    <div class="footer-center">
+      <div>info@rmj-ranch.com</div>
+      <div>rmj-ranch.com</div>
+    </div>
+
+    <div class="footer-right">
+      <div>© 2026 RMJ Ranch</div>
+      <div>All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>
